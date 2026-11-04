@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F3EFE8">
+<meta name="description" content="Kikascpinheiro — UGC Creator based in Portugal. Lifestyle, travel, beauty and fashion content.">
+<title>Kikascpinheiro | UGC Creator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F3EFE8;
+  --sand: #D8C8B7;
+  --terracotta: #A87555;
+  --sage: #7C8977;
+  --sea: #9CB8C9;
+  --coffee: #55483E;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--coffee);
+  font-family: 'Montserrat', sans-serif;
+}
+
+a { color: inherit; }
+
+.editorial {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .23em;
+  font-size: .68rem;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+header {
+  border-bottom: 1px solid var(--sand);
+}
+
+.nav {
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 32px;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+nav a:hover { color: var(--terracotta); }
+
+.hero {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+  padding-top: 90px;
+  padding-bottom: 110px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  margin: 22px 0;
+}
+
+.hero p.description {
+  max-width: 430px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.photo-frame {
+  position: relative;
+}
+
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--sand);
+  inset: 18px -18px -18px 18px;
+  z-index: 0;
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--sand);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--terracotta);
+  color: var(--cream);
+  text-decoration: none;
+  padding: 17px 28px;
+  margin-top: 22px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--sage);
+  transform: translateY(-2px);
+}
+
+.about {
+  background: var(--sand);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: center;
+  gap: 85px;
+}
+
+.about h2, section h2 {
+  font-size: clamp(40px, 5vw, 58px);
+  margin: 20px 0;
+}
+
+.about p {
+  line-height: 2;
+  font-size: 14px;
+  max-width: 570px;
+}
+
+.portfolio {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  border-bottom: 1px solid var(--sand);
+  padding-bottom: 25px;
+  margin-bottom: 45px;
+}
+
+.section-heading p {
+  max-width: 280px;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+.portfolio-subheading {
+  margin: 70px 0 25px;
+  font-size: clamp(32px, 4vw, 44px);
+}
+
+.content-videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.content-video {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 9 / 16;
+  display: block;
+  object-fit: cover;
+  background: var(--sand);
+}
+
+.outfit-carousel {
+  position: relative;
+}
+
+.outfit-track {
+  display: grid;
+  grid-auto-columns: calc((100% - 50px) / 3);
+  grid-auto-flow: column;
+  gap: 25px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--terracotta) var(--sand);
+  padding-bottom: 12px;
+}
+
+.outfit-card {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.outfit-card img,
+.content-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--sand);
+}
+
+.outfit-card img { aspect-ratio: 9 / 16; }
+
+.content-gallery .travel-photo-first { object-position: 70% center; }
+
+.content-gallery .food-photo-last { object-fit: contain; }
+
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.carousel-controls button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--sand);
+  background: transparent;
+  color: var(--coffee);
+  font: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.carousel-controls button:hover {
+  background: var(--terracotta);
+  color: var(--cream);
+}
+
+.carousel-controls button:focus-visible,
+.outfit-track:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+.content-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 45px 25px;
+}
+
+.services {
+  background: var(--sage);
+  color: var(--cream);
+  padding: 100px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 80px;
+}
+
+.services h2 { margin-top: 20px; }
+
+.services-description {
+  line-height: 1.9;
+  max-width: 380px;
+  font-size: 14px;
+}
+
+.service-list {
+  border-top: 1px solid var(--sand);
+}
+
+.service-list h3 {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--sand);
+}
+
+.why {
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.why-item {
+  border-top: 1px solid var(--sand);
+  padding-top: 25px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  display: block;
+  background: var(--terracotta);
+  border-radius: 50%;
+}
+
+.why-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.contact {
+  background: var(--sea);
+  padding: 100px 0;
+}
+
+.contact h2 {
+  max-width: 850px;
+  font-size: clamp(45px, 6vw, 75px);
+}
+
+.contact-bottom {
+  border-top: 1px solid var(--coffee);
+  padding-top: 35px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer {
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+footer p { font-size: 10px; letter-spacing: .15em; }
+
+@media(max-width: 760px) {
+  .container {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .nav {
+    padding: 20px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav { gap: 15px; }
+
+  nav a { font-size: 10px; }
+
+  .hero, .about-grid, .services-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .hero {
+    padding-top: 55px;
+    padding-bottom: 75px;
+  }
+
+  .hero h1 { font-size: 55px; }
+
+  .about, .services, .contact {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .portfolio, .why {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .content-videos {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+
+  .content-video {
+    flex: 0 0 170px;
+    scroll-snap-align: start;
+  }
+
+  .outfit-track {
+    grid-auto-columns: calc((100% - 15px) / 2);
+    gap: 15px;
+  }
+
+  .content-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 15px; }
+
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .section-heading, .contact-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media(max-width: 380px) {
+  .outfit-track { grid-auto-columns: 85%; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo editorial">Kikascpinheiro.</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="container hero" id="home">
+
+  <div>
+    <p class="eyebrow" style="color:var(--terracotta)">
+      UGC CREATOR · PORTUGAL
+    </p>
+
+    <h1 class="editorial">
+      Creating authentic content that connects.
+    </h1>
+    <p class="description">
+      Bringing brands to life through creative storytelling,
+      beautiful visuals and authentic content.
+      With a focus on Lifestyle, Travel, Beauty and Fashion.
+    </p>
+
+    <a href="#portfolio" class="btn">Explore my work</a>
+  </div>
+
+  <div class="photo-frame">
+    <!-- YOUR HERO PHOTO: replace hero-photo.jpg -->
+    <img class="photo"
+         src="hero-photo.jpeg"
+         alt="Kikascpinheiro — UGC Creator">
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+
+    <!-- YOUR ABOUT PHOTO: replace about-photo.jpg -->
+    <img class="photo"
+         src="about-photo.jpeg"
+         alt="Kikascpinheiro portrait">
+
+    <div>
+      <p class="eyebrow">THE PERSON BEHIND THE CAMERA</p>
+
+      <h2 class="editorial">A little about me.</h2>
+
+      <div style="width:65px;height:1px;background:var(--terracotta);margin:30px 0"></div>
+
+      <p>
+        Hi! I'm Francisca, a UGC creator from Portugal
+        with a passion for creating meaningful visual stories.
+      </p>
+
+      <p>
+        I love capturing authentic moments, beautiful details
+        and everyday experiences. My goal is to create content
+        that feels natural, relatable and inspiring, helping
+        brands build genuine connections with their audiences.
+      </p>
+
+      <p>
+        Through creativity and storytelling, I transform products
+        and experiences into engaging content that inspires people.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="container portfolio" id="portfolio">
+
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow" style="color:var(--terracotta)">SELECTED WORK</p>
+      <h2 class="editorial">My portfolio.</h2>
+    </div>
+
+    <p>
+      A collection of visual stories created with creativity,
+      intention and authenticity.
+    </p>
+  </div>
+
+  <h3 class="portfolio-subheading editorial" id="featured-videos-heading">Featured videos.</h3>
+  <div class="content-videos" role="group" aria-labelledby="featured-videos-heading">
+    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 1">
+      <source src="content-video-01.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 2">
+      <source src="content-video-02.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 3">
+      <source src="content-video-03.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+  <h3 class="portfolio-subheading editorial" id="outfit-photos-heading">Outfit stories.</h3>
+  <div class="outfit-carousel" role="region" aria-labelledby="outfit-photos-heading">
+    <div class="outfit-track" id="outfit-track" tabindex="0">
+      <article class="outfit-card">
+        <img src="outfit-01-photo.jpeg" alt="Outfit photo 1 from Instagram">
+      </article>
+      <article class="outfit-card">
+        <img src="outfit-02-photo.jpeg" alt="Outfit photo 2 from Instagram">
+      </article>
+      <article class="outfit-card">
+        <img src="outfit-03-photo.jpeg" alt="Outfit photo 3 from Instagram">
+      </article>
+      <article class="outfit-card">
+        <img src="outfit-04-photo.jpeg" alt="Outfit photo 4 from Instagram">
+      </article>
+      <article class="outfit-card">
+        <img src="outfit-05-photo.jpeg" alt="Outfit photo 5 from Instagram">
+      </article>
+      <article class="outfit-card">
+        <img src="outfit-06-photo.jpeg" alt="Outfit photo 6 from Instagram">
+      </article>
+    </div>
+    <div class="carousel-controls">
+      <button type="button" data-carousel-direction="-1" aria-label="Show previous outfit photos">&#8592;</button>
+      <button type="button" data-carousel-direction="1" aria-label="Show next outfit photos">&#8594;</button>
+    </div>
+  </div>
+
+  <h3 class="portfolio-subheading editorial" id="content-gallery-heading">Travel, lifestyle &amp; food.</h3>
+  <div class="content-gallery" role="group" aria-labelledby="content-gallery-heading">
+    <img class="travel-photo-first" src="travel-photo-01.jpeg" alt="Travel photo 1">
+    <img src="travel-photo-02.jpeg" alt="Travel photo 2">
+    <img src="travel-photo-03.jpeg" alt="Travel photo 3">
+    <img src="travel-photo-04.jpeg" alt="Travel photo 4">
+    <img src="lifestyle-photo-01.jpeg" alt="Lifestyle photo 1">
+    <img src="lifestyle-photo-02.jpeg" alt="Lifestyle photo 2">
+    <img src="lifestyle-photo-03.jpeg" alt="Lifestyle photo 3">
+    <img src="lifestyle-photo-04.jpeg" alt="Lifestyle photo 4">
+    <img src="food-photo-01.jpeg" alt="Food photo 1">
+    <img src="food-photo-02.jpeg" alt="Food photo 2">
+    <img src="food-photo-03.jpeg" alt="Food photo 3">
+    <img class="food-photo-last" src="food-photo-04.jpeg" alt="Food photo 4">
+  </div>
+</section>
+
+<script>
+  const portfolio = document.querySelector("#portfolio");
+  const outfitTrack = portfolio.querySelector("#outfit-track");
+
+  portfolio.querySelectorAll(".content-video").forEach((video) => {
+    const playVideo = () => {
+      video.play().catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error("Could not play portfolio video:", error);
+        }
+      });
+    };
+
+    video.addEventListener("pointerenter", playVideo);
+    video.addEventListener("pointerleave", () => video.pause());
+    video.addEventListener("focus", playVideo);
+    video.addEventListener("blur", () => video.pause());
+  });
+
+  portfolio.querySelectorAll("[data-carousel-direction]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = Number(button.dataset.carouselDirection);
+      const card = outfitTrack.querySelector(".outfit-card");
+      const gap = Number.parseFloat(getComputedStyle(outfitTrack).columnGap);
+      outfitTrack.scrollBy({
+        left: direction * (card.getBoundingClientRect().width + gap),
+        behavior: "smooth",
+      });
+    });
+  });
+</script>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container services-grid">
+
+    <div>
+      <p class="eyebrow">WHAT I CREATE</p>
+      <h2 class="editorial">My services.</h2>
+
+      <p class="services-description">
+        Creative content designed to showcase your brand,
+        tell your story and connect with your target audience.
+      </p>
+    </div>
+
+    <div class="service-list">
+      <h3 class="editorial">UGC Videos</h3>
+      <h3 class="editorial">Product Photography</h3>
+      <h3 class="editorial">Unboxing Videos</h3>
+      <h3 class="editorial">Product Reviews</h3>
+      <h3 class="editorial">Lifestyle Content</h3>
+      <h3 class="editorial">Voiceovers</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY WORK WITH ME -->
+<section class="container why">
+
+  <p class="eyebrow" style="color:var(--terracotta)">THE APPROACH</p>
+  <h2 class="editorial">Why work with me.</h2>
+
+  <div class="why-grid">
+
+    <article class="why-item">
+      <span class="dot"></span>
+      <h3>Authentic storytelling</h3>
+    </article>
+
+    <article class="why-item">
+      <span class="dot"></span>
+      <h3>Creative and thoughtful concepts</h3>
+    </article>
+
+    <article class="why-item">
+      <span class="dot"></span>
+      <h3>Natural and relatable content</h3>
+    </article>
+
+    <article class="why-item">
+      <span class="dot"></span>
+      <h3>Attention to detail</h3>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+
+    <p class="eyebrow">LET'S CONNECT</p>
+
+    <h2 class="editorial">
+      Let's create something beautiful together.
+    </h2>
+
+    <div class="contact-bottom">
+
+      <div>
+        <p class="eyebrow">EMAIL</p>
+        <a class="contact-link"
+           href="mailto:francisca.scnpinheiro@gmail.com">
+          francisca.scnpinheiro@gmail.com
+        </a>
+
+        <br><br>
+
+        <p class="eyebrow">INSTAGRAM</p>
+        <a class="contact-link"
+           href="https://www.instagram.com/kikaspinheiro/"
+           target="_blank"
+           rel="noopener noreferrer">
+          @kikaspinheiro ↗
+        </a>
+      </div>
+
+      <a class="btn"
+         href="mailto:francisca.scnpinheiro@gmail.com?subject=UGC%20Collaboration">
+        Let's collaborate ↗
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+
+    <p class="editorial" style="font-size:25px;letter-spacing:0">
+      Kikascpinheiro.
+    </p>
+
+    <p>UGC CREATOR · PORTUGAL · CREATED WITH INTENTION</p>
+
+  </div>
+</footer>
+
+</body>
+</html>
