@@ -713,11 +713,11 @@ footer p { font-size: 10px; letter-spacing: .15em; }
 
   <h3 class="portfolio-subheading editorial" id="tiktok-videos-heading">From my TikTok.</h3>
   <div class="tiktok-videos" role="group" aria-labelledby="tiktok-videos-heading">
-    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="none" aria-label="TikTok video 1">
+    <video class="tiktok-video tiktok-video-vertical" muted controls playsinline preload="none" aria-label="TikTok video 1">
       <source src="tiktok-video-01.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
-    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="none" aria-label="TikTok video 2">
+    <video class="tiktok-video tiktok-video-vertical" muted controls playsinline preload="none" aria-label="TikTok video 2">
       <source src="tiktok-video-02.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
@@ -789,7 +789,7 @@ footer p { font-size: 10px; letter-spacing: .15em; }
   const portfolio = document.querySelector("#portfolio");
   const outfitTrack = portfolio.querySelector("#outfit-track");
 
-  portfolio.querySelectorAll(".content-video").forEach((video) => {
+  portfolio.querySelectorAll(".content-video, .tiktok-video").forEach((video) => {
     const playVideo = () => {
       video.play().catch((error) => {
         if (error.name !== "AbortError") {
