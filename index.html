@@ -151,6 +151,7 @@ nav a:hover { color: var(--terracotta); }
 }
 
 .about {
+  display: grid;
   background: var(--sand);
   padding-top: 100px;
   padding-bottom: 100px;
@@ -172,6 +173,37 @@ nav a:hover { color: var(--terracotta); }
   line-height: 2;
   font-size: 14px;
   max-width: 570px;
+}
+
+.facts {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  list-style: none;
+}
+
+.facts li {
+  padding: 20px;
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+}
+
+.facts h3 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.facts p {
+  margin: 0;
+  line-height: 1.6;
 }
 
 .portfolio {
@@ -330,6 +362,64 @@ nav a:hover { color: var(--terracotta); }
   font-size: 13px;
 }
 
+.packs {
+  padding: 100px 0;
+  background: var(--sand);
+}
+
+.packs-intro {
+  max-width: 700px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.pack-card {
+  padding: 28px;
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  border-radius: 16px;
+}
+
+.pack-card.featured {
+  border: 3px solid var(--terracotta);
+}
+
+.pack-card h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.pack-price {
+  margin: 12px 0 20px;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.pack-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--sage);
+  line-height: 2;
+  font-size: 14px;
+}
+
+.packs-cta {
+  transition: none;
+}
+
+.packs-cta:hover {
+  transform: none;
+}
+
 .why {
   padding-top: 100px;
   padding-bottom: 110px;
@@ -474,6 +564,11 @@ footer p { font-size: 10px; letter-spacing: .15em; }
   }
 }
 
+@media(max-width: 860px) {
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .packs-grid { grid-template-columns: 1fr; }
+}
+
 @media(max-width: 380px) {
   .outfit-track { grid-auto-columns: 85%; }
 }
@@ -547,29 +642,34 @@ footer p { font-size: 10px; letter-spacing: .15em; }
     <div>
       <p class="eyebrow">THE PERSON BEHIND THE CAMERA</p>
 
-      <h2 class="editorial">A little about me.</h2>
+      <h2 class="editorial">Hi, I'm Francisca.</h2>
 
       <div style="width:65px;height:1px;background:var(--terracotta);margin:30px 0"></div>
 
-      <p>
-        Hi! I'm Francisca, a UGC creator from Portugal
-        with a passion for creating meaningful visual stories.
-      </p>
-
-      <p>
-        I love capturing authentic moments, beautiful details
-        and everyday experiences. My goal is to create content
-        that feels natural, relatable and inspiring, helping
-        brands build genuine connections with their audiences.
-      </p>
-
-      <p>
-        Through creativity and storytelling, I transform products
-        and experiences into engaging content that inspires people.
-      </p>
+      <p>I'm 22, from Portugal, and I'm doing a Master's in Data-Driven Marketing. I'm spontaneous, I have a style that's entirely my own, and I'm always looking for the next thing to do, which usually means planning a trip or finding a good brunch spot.</p>
+      <p>My Erasmus was one of the best chapters of my life. It made me fall even more in love with new places, new people and the small details worth filming.</p>
+      <p>I turn those everyday moments into content that feels natural and relatable, and I use what I study to make it work for your brand: strong hooks, clear messages and formats that fit each platform.</p>
     </div>
 
   </div>
+  <ul class="container facts">
+    <li>
+      <h3>Based in</h3>
+      <p>Lisbon, Portugal</p>
+    </li>
+    <li>
+      <h3>Studying</h3>
+      <p>Data-Driven Marketing (Master's)</p>
+    </li>
+    <li>
+      <h3>Niches</h3>
+      <p>Travel, food, lifestyle, fashion, beauty</p>
+    </li>
+    <li>
+      <h3>Languages</h3>
+      <p>Portuguese and English</p>
+    </li>
+  </ul>
 </section>
 
 <!-- PORTFOLIO -->
@@ -721,6 +821,46 @@ footer p { font-size: 10px; letter-spacing: .15em; }
       </article>
     </div>
 
+  </div>
+</section>
+
+<!-- PACKS -->
+<section class="packs" id="packs">
+  <div class="container">
+    <h2 class="editorial">Packs</h2>
+    <p class="packs-intro">Every pack includes one round of edits. Rates depend on where and for how long you'll use the content, so tell me your plans and I'll send you a quote.</p>
+
+    <div class="packs-grid">
+      <article class="pack-card">
+        <h3>Single video</h3>
+        <p class="pack-price">Custom quote</p>
+        <ul>
+          <li>1 UGC video</li>
+          <li>Up to 45 seconds</li>
+          <li>1 hook option</li>
+        </ul>
+      </article>
+      <article class="pack-card featured">
+        <h3>Content pack</h3>
+        <p class="pack-price">Custom quote</p>
+        <ul>
+          <li>3 UGC videos</li>
+          <li>3 different hooks</li>
+          <li>Mix of review, demo and voiceover</li>
+        </ul>
+      </article>
+      <article class="pack-card">
+        <h3>Growth pack</h3>
+        <p class="pack-price">Custom quote</p>
+        <ul>
+          <li>5 UGC videos</li>
+          <li>Photos included</li>
+          <li>Mix of formats for different platforms</li>
+        </ul>
+      </article>
+    </div>
+
+    <a class="btn packs-cta" href="mailto:francisca.scnpinheiro@gmail.com?subject=UGC%20Quote">Ask for a quote</a>
   </div>
 </section>
 
