@@ -247,6 +247,29 @@ nav a:hover { color: var(--terracotta); }
   background: var(--sand);
 }
 
+.tiktok-videos {
+  display: grid;
+  grid-template-columns: 27fr 64fr;
+  align-items: start;
+  gap: 25px;
+}
+
+.tiktok-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #000;
+}
+
+.tiktok-video-vertical {
+  aspect-ratio: 9 / 16;
+}
+
+.tiktok-video-landscape {
+  aspect-ratio: 4 / 3;
+}
+
 .outfit-carousel {
   position: relative;
 }
@@ -687,6 +710,18 @@ footer p { font-size: 10px; letter-spacing: .15em; }
     </p>
   </div>
 
+  <h3 class="portfolio-subheading editorial" id="tiktok-videos-heading">From my TikTok</h3>
+  <div class="tiktok-videos" role="group" aria-labelledby="tiktok-videos-heading">
+    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="metadata" aria-label="TikTok video 1">
+      <source src="tiktok-video-01.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+    <video class="tiktok-video tiktok-video-landscape" controls playsinline preload="metadata" aria-label="TikTok video 2">
+      <source src="tiktok-video-02.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
   <h3 class="portfolio-subheading editorial" id="featured-videos-heading">Featured videos.</h3>
   <div class="content-videos" role="group" aria-labelledby="featured-videos-heading">
     <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 1">
@@ -731,6 +766,7 @@ footer p { font-size: 10px; letter-spacing: .15em; }
     </div>
   </div>
 
+  
   <h3 class="portfolio-subheading editorial" id="content-gallery-heading">Travel, lifestyle &amp; food.</h3>
   <div class="content-gallery" role="group" aria-labelledby="content-gallery-heading">
     <img class="travel-photo-first" src="travel-photo-01.jpeg" alt="Travel photo 1">
