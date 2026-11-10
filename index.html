@@ -303,6 +303,17 @@ nav a:hover { color: var(--terracotta); }
   background: var(--sand);
 }
 
+.outfit-photo-frame {
+  aspect-ratio: 1170 / 2384;
+  overflow: hidden;
+}
+
+.outfit-photo-frame img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
 .content-gallery .travel-photo-first { object-position: 70% center; }
 
 .content-gallery .travel-photo-second {
@@ -742,6 +753,11 @@ footer p { font-size: 10px; letter-spacing: .15em; }
   <h3 class="portfolio-subheading editorial" id="outfit-photos-heading">Outfit stories.</h3>
   <div class="outfit-carousel" role="region" aria-labelledby="outfit-photos-heading">
     <div class="outfit-track" id="outfit-track" tabindex="0">
+      <article class="outfit-card">
+        <div class="outfit-photo-frame">
+          <img src="outfit-00-photo.webp" width="1170" height="2384" loading="lazy" decoding="async" alt="Outfit photo 0 from Instagram">
+        </div>
+      </article>
       <article class="outfit-card">
         <img src="outfit-01-photo.webp" width="1170" height="2384" loading="lazy" decoding="async" alt="Outfit photo 1 from Instagram">
       </article>
