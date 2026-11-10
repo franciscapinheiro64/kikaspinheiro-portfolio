@@ -10,7 +10,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero-photo.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</noscript>
 
 <style>
 :root {
@@ -126,8 +130,7 @@ nav a:hover { color: var(--terracotta); }
   z-index: 1;
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
   background: var(--sand);
 }
 
@@ -295,16 +298,17 @@ nav a:hover { color: var(--terracotta); }
 .content-gallery img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
   background: var(--sand);
 }
 
-.outfit-card img { aspect-ratio: 9 / 16; }
-
 .content-gallery .travel-photo-first { object-position: 70% center; }
 
-.content-gallery .food-photo-last { object-fit: contain; }
+.content-gallery .travel-photo-second {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
 
 .carousel-controls {
   display: flex;
@@ -431,14 +435,6 @@ nav a:hover { color: var(--terracotta); }
   color: var(--sage);
   line-height: 2;
   font-size: 14px;
-}
-
-.packs-cta {
-  transition: none;
-}
-
-.packs-cta:hover {
-  transform: none;
 }
 
 .why {
@@ -643,9 +639,12 @@ footer p { font-size: 10px; letter-spacing: .15em; }
   </div>
 
   <div class="photo-frame">
-    <!-- YOUR HERO PHOTO: replace hero-photo.jpg -->
+    <!-- YOUR HERO PHOTO: replace hero-photo.webp -->
     <img class="photo"
-         src="hero-photo.jpeg"
+         src="hero-photo.webp"
+         width="3024"
+         height="4032"
+         fetchpriority="high"
          alt="Kikascpinheiro — UGC Creator">
   </div>
 
@@ -655,9 +654,13 @@ footer p { font-size: 10px; letter-spacing: .15em; }
 <section class="about" id="about">
   <div class="container about-grid">
 
-    <!-- YOUR ABOUT PHOTO: replace about-photo.jpg -->
+    <!-- YOUR ABOUT PHOTO: replace about-photo.webp -->
     <img class="photo"
-         src="about-photo.jpeg"
+         src="about-photo.webp"
+         width="2674"
+         height="3565"
+         loading="lazy"
+         decoding="async"
          alt="Kikascpinheiro portrait">
 
     <div>
@@ -710,11 +713,11 @@ footer p { font-size: 10px; letter-spacing: .15em; }
 
   <h3 class="portfolio-subheading editorial" id="tiktok-videos-heading">From my TikTok.</h3>
   <div class="tiktok-videos" role="group" aria-labelledby="tiktok-videos-heading">
-    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="metadata" aria-label="TikTok video 1">
+    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="none" aria-label="TikTok video 1">
       <source src="tiktok-video-01.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
-    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="metadata" aria-label="TikTok video 2">
+    <video class="tiktok-video tiktok-video-vertical" controls playsinline preload="none" aria-label="TikTok video 2">
       <source src="tiktok-video-02.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
@@ -722,15 +725,15 @@ footer p { font-size: 10px; letter-spacing: .15em; }
 
   <h3 class="portfolio-subheading editorial" id="featured-videos-heading">Featured videos.</h3>
   <div class="content-videos" role="group" aria-labelledby="featured-videos-heading">
-    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 1">
+    <video class="content-video" muted playsinline preload="none" controls aria-label="Featured video 1">
       <source src="content-video-01.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
-    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 2">
+    <video class="content-video" muted playsinline preload="none" controls aria-label="Featured video 2">
       <source src="content-video-02.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
-    <video class="content-video" muted playsinline preload="metadata" controls aria-label="Featured video 3">
+    <video class="content-video" muted playsinline preload="none" controls aria-label="Featured video 3">
       <source src="content-video-03.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
@@ -740,22 +743,22 @@ footer p { font-size: 10px; letter-spacing: .15em; }
   <div class="outfit-carousel" role="region" aria-labelledby="outfit-photos-heading">
     <div class="outfit-track" id="outfit-track" tabindex="0">
       <article class="outfit-card">
-        <img src="outfit-01-photo.jpeg" alt="Outfit photo 1 from Instagram">
+        <img src="outfit-01-photo.webp" width="1170" height="2384" loading="lazy" decoding="async" alt="Outfit photo 1 from Instagram">
       </article>
       <article class="outfit-card">
-        <img src="outfit-02-photo.jpeg" alt="Outfit photo 2 from Instagram">
+        <img src="outfit-02-photo.webp" width="1170" height="2386" loading="lazy" decoding="async" alt="Outfit photo 2 from Instagram">
       </article>
       <article class="outfit-card">
-        <img src="outfit-03-photo.jpeg" alt="Outfit photo 3 from Instagram">
+        <img src="outfit-03-photo.webp" width="1170" height="2382" loading="lazy" decoding="async" alt="Outfit photo 3 from Instagram">
       </article>
       <article class="outfit-card">
-        <img src="outfit-04-photo.jpeg" alt="Outfit photo 4 from Instagram">
+        <img src="outfit-04-photo.webp" width="1170" height="2384" loading="lazy" decoding="async" alt="Outfit photo 4 from Instagram">
       </article>
       <article class="outfit-card">
-        <img src="outfit-05-photo.jpeg" alt="Outfit photo 5 from Instagram">
+        <img src="outfit-05-photo.webp" width="1170" height="2389" loading="lazy" decoding="async" alt="Outfit photo 5 from Instagram">
       </article>
       <article class="outfit-card">
-        <img src="outfit-06-photo.jpeg" alt="Outfit photo 6 from Instagram">
+        <img src="outfit-06-photo.webp" width="1170" height="2392" loading="lazy" decoding="async" alt="Outfit photo 6 from Instagram">
       </article>
     </div>
     <div class="carousel-controls">
@@ -767,18 +770,18 @@ footer p { font-size: 10px; letter-spacing: .15em; }
 
   <h3 class="portfolio-subheading editorial" id="content-gallery-heading">Travel, lifestyle &amp; food.</h3>
   <div class="content-gallery" role="group" aria-labelledby="content-gallery-heading">
-    <img class="travel-photo-first" src="travel-photo-01.jpeg" alt="Travel photo 1">
-    <img src="travel-photo-02.jpeg" alt="Travel photo 2">
-    <img src="travel-photo-03.jpeg" alt="Travel photo 3">
-    <img src="travel-photo-04.jpeg" alt="Travel photo 4">
-    <img src="lifestyle-photo-01.jpeg" alt="Lifestyle photo 1">
-    <img src="lifestyle-photo-02.jpeg" alt="Lifestyle photo 2">
-    <img src="lifestyle-photo-03.jpeg" alt="Lifestyle photo 3">
-    <img src="lifestyle-photo-04.jpeg" alt="Lifestyle photo 4">
-    <img src="food-photo-01.jpeg" alt="Food photo 1">
-    <img src="food-photo-02.jpeg" alt="Food photo 2">
-    <img src="food-photo-03.jpeg" alt="Food photo 3">
-    <img class="food-photo-last" src="food-photo-04.jpeg" alt="Food photo 4">
+    <img class="travel-photo-first" src="travel-photo-01.webp" width="4000" height="3000" loading="lazy" decoding="async" alt="Travel photo 1">
+    <img class="travel-photo-second" src="travel-photo-02.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Travel photo 2">
+    <img src="travel-photo-03.webp" width="4032" height="3024" loading="lazy" decoding="async" alt="Travel photo 3">
+    <img src="travel-photo-04.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Travel photo 4">
+    <img src="lifestyle-photo-01.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Lifestyle photo 1">
+    <img src="lifestyle-photo-02.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Lifestyle photo 2">
+    <img src="lifestyle-photo-03.webp" width="4032" height="3024" loading="lazy" decoding="async" alt="Lifestyle photo 3">
+    <img src="lifestyle-photo-04.webp" width="4032" height="3024" loading="lazy" decoding="async" alt="Lifestyle photo 4">
+    <img src="food-photo-01.webp" width="4032" height="3024" loading="lazy" decoding="async" alt="Food photo 1">
+    <img src="food-photo-02.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Food photo 2">
+    <img src="food-photo-03.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Food photo 3">
+    <img class="food-photo-last" src="food-photo-04.webp" width="3024" height="4032" loading="lazy" decoding="async" alt="Food photo 4">
   </div>
 </section>
 
